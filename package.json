@@ -1,6 +1,6 @@
 {
   "name": "repromise",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "JavaScript Promise Retry Module",
   "main": "dist/index.js",
   "repository": {
