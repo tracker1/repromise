@@ -21,15 +21,12 @@ function repromise(options, fn) {
 
 
 function retry(resolve, reject, retries, fn) {
-  var errors = [];
-
   //return handle to wrapped function
   return onError;
 
   //wrapped function for error/retry handler
   function onError(err) {
-    errors.push(err);
-    if (!retries.length) return reject(errors);
+    if (!retries.length) return reject(err);
     setTimeout(()=>fn().then(resolve, onError), retries.shift());
   }
 }

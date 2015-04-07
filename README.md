@@ -20,8 +20,8 @@ repromise(options, function(){
 .then(function(value){
    //promise's resolved value
 })
-.catch(function(errors){
-  //ran out of tries, array of errors
+.catch(function(error){
+  //ran out of tries, last error raised
 });
 ```
 
