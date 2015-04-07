@@ -11,7 +11,7 @@ var repromise = require('repromise');
 var options = {
   tries: 3    // attempts to run
   ,timer: 100 // milliseconds before second run
-  ,factor: 2  // factor to multiply timer by for each subsequent run
+  ,multiplier: 1.2  // factor to multiply timer by for each subsequent run
 };
 
 repromise(options, function(){
