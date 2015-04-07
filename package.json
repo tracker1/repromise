@@ -8,9 +8,8 @@
     "url": "https://github.com/tracker1/repromise.git"
   },
   "keywords": [
-    "mssql",
-    "sql",
-    "teplates",
+    "promise",
+    "retry"
     "es6",
     "promises"
   ],
