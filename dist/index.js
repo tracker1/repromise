@@ -26,7 +26,10 @@ function repromise(options, fn) {
 }
 
 function retry(resolve, reject, retries, fn) {
+  //return handle to wrapped function
   return onError;
+
+  //wrapped function for error/retry handler
   function onError(err) {
     if (!retries.length) {
       return reject(err);
