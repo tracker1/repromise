@@ -4,19 +4,21 @@ var getRetryCounts = require('./get-retry-counts');
 module.exports = repromise;
 
 function repromise(options, fn) {
-  return new Promise((resolve, reject)=>{
-    if (arguments.length < 1) throw new Error('No arguments specified');
+  try {
+    if (arguments.length < 1) return Promise.reject(new Error('No arguments specified'));
     if (arguments.length == 1) {
       fn = options;
       options = {};
     }
-    if (typeof fn !== 'function') throw new Error('Function is required');
+    if (typeof fn !== 'function') return Promise.reject(new Error('Function is required'));
 
     fn = wrap(fn);
 
     var retries = getRetryCounts(options); //array of setTimeout values for retries
-    return fn().catch((err)=>retry(resolve,reject,retries,fn)(err));
-  });
+    return fn().catch((err)=>new Promise((resolve,reject)=>retry(resolve,reject,retries,fn)(err)));
+  } catch(err) {
+    return Promise.reject(err);
+  }
 }
 
 
