@@ -1,4 +1,3 @@
-var Promise = require('i-promise');
 var getRetryCounts = require('./get-retry-counts');
 
 module.exports = repromise;

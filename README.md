@@ -2,7 +2,6 @@
 
 Promise retry mechanism for JavaScript promises
 
-
 ```
 // this module
 var repromise = require('repromise');
@@ -29,18 +28,4 @@ repromise(options, function(){
 .catch(function(err){
   //ran out of tries, last error raised
 });
-
-
-```
-
-
-
-## Requirements
-
-Requires [i-promise](https://www.npmjs.com/package/i-promise) as a peerDependency, which requires native Promises, or a detected Promise library.
-
-If you wish to force a promise library, you can do so before requiring this module.
-
-```
-require('i-promise/config').use(require('bluebird'));
 ```
